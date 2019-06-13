@@ -16,7 +16,7 @@ Car::~Car()
 
 }
 
-void Car::SetEngine(std::unique_ptr<Engine> &engine)
+void Car::SetEngine(std::unique_ptr<UFerrariEngine> &engine)
 {
     this->_engine = std::move(engine);
 }
@@ -51,10 +51,9 @@ void Car::Simulate()
         else
             cout<<":"<<ss;
 
+        cout<<"  Power: "<<_engine->getPower()<<"  ";
+         _engine->Gas(std::sqrt(++gas));
 
-        _engine->Gas(std::sqrt(++gas));
-
-        _engine->GetRPM();
 
        elapsed = (clock()-start)/CLOCKS_PER_SEC;
 

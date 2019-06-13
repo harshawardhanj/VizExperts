@@ -4,6 +4,7 @@
 #include <string>
 #include <Engine.h>
 #include <memory>
+#include <UFerrariEngine.h>
 
 class Car
 {
@@ -11,12 +12,12 @@ public:
     Car(const std::string &name);
     ~Car();
 
-    void SetEngine(std::unique_ptr<Engine> &engine);
+    void SetEngine(std::unique_ptr<UFerrariEngine> &engine);
 
     void Simulate();
 
 private:
-    std::unique_ptr<Engine> _engine;
+    std::unique_ptr<UFerrariEngine> _engine;
     std::string _carName;
 };
 

@@ -38,6 +38,7 @@ public:
             LOG(  "[" << LogLevelNames[level] << "]: " << message << std::endl);
         }
     }
+
 };
 
 

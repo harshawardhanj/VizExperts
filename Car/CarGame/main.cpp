@@ -5,6 +5,8 @@
 #include <memory>
 #include <thread>
 #include <Logger.h>
+#include <UFerrariEngine.h>
+
  using namespace std;
 
 
@@ -15,14 +17,12 @@
  */
 int main()
 {
-
     std::unique_ptr<Car> car(new Car("Ferrari"));
 
-    std::unique_ptr<Engine> engine(new FerrariEngine());   //incomplete Engine,
+    std::unique_ptr<UFerrariEngine> updatedEngine(new UFerrariEngine());   //incomplete Engine,
 
-    car->SetEngine(engine);
+    car->SetEngine(updatedEngine);
 
-    //start Car simulation to record Engine Temperature for 10 sec.
     thread t(&Car::Simulate, car.get());
 
     t.join();

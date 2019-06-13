@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+    UFerrariEngine.cpp \
         main.cpp \
     Car.cpp
 
@@ -14,7 +15,8 @@ HEADERS += \
     Engine.h \
     FerrariEngine.h \
     Car.h \
-    Logger.h
+    Logger.h \
+    UFerrariEngine.h
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../Ferrari/build-FerrariEngine-Qt_5_12_0_mingw73_64_temporary-Debug/release/ -lFerrariEngine
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../Ferrari/build-FerrariEngine-Qt_5_12_0_mingw73_64_temporary-Debug/debug/ -lFerrariEngine
