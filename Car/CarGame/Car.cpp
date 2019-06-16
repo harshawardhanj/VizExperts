@@ -4,6 +4,8 @@
 #include <thread>
 #include <math.h>
 #include <iostream>
+#include "Logger.h"
+
 using namespace std;
 
 Car::Car(const std::string &name):_carName(name)
@@ -26,6 +28,7 @@ void Car::Simulate()
 
    clock_t start = clock(), elapsed=0;
    float gas=0;
+   CLogger::GetLogger()->Log("");
 
    while(elapsed<=10)
    {
@@ -35,23 +38,26 @@ void Car::Simulate()
       int hh=mm/60;
       mm=mm%60;
 
+       string timestamp="";
 
        if(hh<10)
-           cout<<"0"<<hh;
+           timestamp="0"+std::to_string(hh);
        else
-          cout<<hh;
+          timestamp=std::to_string(hh);
 
         if(mm<10)
-           cout<<":0"<<mm;
+           timestamp+=":0"+std::to_string(mm);
         else
-            cout<<":"<<mm;
+            timestamp+=":"+std::to_string(mm);
 
         if(ss<10)
-           cout<<":0"<<ss;
+           timestamp+=":0"+std::to_string(ss);
         else
-            cout<<":"<<ss;
+            timestamp+=":"+std::to_string(ss);
 
-        cout<<"  Power: "<<_engine->getPower()<<"  ";
+        LOGGER->Log(" %s Hp, %d", timestamp.c_str(),_engine->getPower() );
+         cout<<timestamp<<",";
+        cout<<" "<<_engine->getPower()<<" Hp,";
          _engine->Gas(std::sqrt(++gas));
 
 

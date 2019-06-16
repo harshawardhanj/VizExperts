@@ -8,7 +8,7 @@ class UFerrariEngine : public FerrariEngine
 public:
     UFerrariEngine();
     size_t getPower();
-
+    void LogEngineTemperature();
 };
 
 #endif // UFERRARIENGINE_H
